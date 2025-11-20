@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Sesión – NutriMente</title>
+
+    <meta name="description" content="Agenda tu sesión de nutrición, psicología o bienestar con profesionales certificados.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tipografías -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        .bg-terracotta { background-color: #A25B5B; }
+        .bg-terracotta-dark { background-color: #7D4545; }
+        .text-terracotta { color: #A25B5B; }
+        .bg-page-light { background-color: #F5F7F9; }
+    </style>
+</head>
+
+<body class="bg-page-light min-h-screen pb-20">
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-md border-b-4 border-slate-800 fixed top-0 left-0 w-full z-50">
+        <div class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="index.html">
+                <h1 class="text-3xl font-luxury font-bold text-slate-800">NutriMente</h1>
+                <span class="text-xs text-terracotta uppercase tracking-widest block mt-1">Agenda tu sesión</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="max-w-3xl mx-auto px-6 mt-28">
+
+        <!-- Título -->
+        <div class="text-center mb-10">
+            <h2 class="text-4xl font-luxury font-bold text-slate-800">Agendar Sesión</h2>
+            <p class="text-gray-700 text-lg mt-3">
+                Selecciona el servicio, la fecha y la hora disponible.  
+                Cada sesión tiene un valor único de <strong>$55.000 COP</strong>.
+            </p>
+        </div>
+
+        <!-- FORMULARIO PRINCIPAL -->
+        <form id="agendarForm" class="bg-white shadow-lg rounded-xl p-8 border-l-8 border-terracotta">
+
+            <!-- SERVICIO -->
+            <div class="mb-6">
+                <label class="block mb-2 font-semibold text-slate-700">Selecciona el servicio:</label>
+                <select id="servicio" required
+                    class="w-full bg-page-light border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-terracotta">
+                    <option value="">-- Elige una opción --</option>
+                    <option value="nutricion">Nutrición</option>
+                    <option value="psicologia">Psicología</option>
+                    <option value="bienestar">Bienestar / Hábitos</option>
+                    <option value="dermosalud">DermoSalud</option>
+                </select>
+            </div>
+
+            <!-- FECHA -->
+            <div class="mb-6">
+                <label class="block mb-2 font-semibold text-slate-700">Selecciona la fecha:</label>
+                <input type="date" id="fecha" required
+                    class="w-full bg-page-light border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-terracotta">
+            </div>
+
+            <!-- HORARIOS -->
+            <div class="mb-6">
+                <label class="block mb-2 font-semibold text-slate-700">Horarios disponibles:</label>
+                <select id="horario" required
+                    class="w-full bg-page-light border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-terracotta">
+                    <option value="">Selecciona una fecha primero</option>
+                </select>
+            </div>
+
+            <!-- DATOS PERSONALES -->
+            <div class="mb-6">
+                <label class="block mb-2 font-semibold text-slate-700">Tu nombre:</label>
+                <input type="text" id="nombre" required
+                    class="w-full bg-page-light border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-terracotta">
+            </div>
+
+            <div class="mb-6">
+                <label class="block mb-2 font-semibold text-slate-700">Correo electrónico:</label>
+                <input type="email" id="correo" required
+                    class="w-full bg-page-light border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-terracotta">
+            </div>
+
+            <!-- BOTÓN RESERVAR -->
+            <button type="submit"
+                class="w-full bg-terracotta hover:bg-terracotta-dark text-white py-3 rounded-lg text-lg shadow-md transition">
+                Confirmar y pagar
+            </button>
+
+        </form>
+
+        <!-- MENSAJE FINAL -->
+        <p class="text-center text-gray-500 text-sm mt-6">
+            *Recibirás la confirmación de tu sesión por correo electrónico.
+        </p>
+
+    </main>
+
+    <!-- JS PARA CARGAR HORARIOS Y ENVIAR CITA -->
+    <script>
+        const fechaInput = document.getElementById("fecha");
+        const horarioSelect = document.getElementById("horario");
+
+        fechaInput.addEventListener("change", () => {
+            const fecha = fechaInput.value;
+
+            fetch(`get_horarios_disponibles.php?fecha=${fecha}`)
+                .then(res => res.json())
+                .then(data => {
+                    horarioSelect.innerHTML = "<option value=''>-- Selecciona un horario --</option>";
+                    data.forEach(hora => {
+                        const opt = document.createElement("option");
+                        opt.value = hora;
+                        opt.textContent = hora;
+                        horarioSelect.appendChild(opt);
+                    });
+                });
+        });
+
+        document.getElementById("agendarForm").addEventListener("submit", function(e){
+            e.preventDefault();
+            window.location.href = "pago_simulado.html";
+        });
+    </script>
+<!-- ============ MENÚ FLOTANTE ============ -->
+<div id="floatMenu"
+     class="hidden md:flex flex-col gap-4 fixed right-4 top-1/3 z-50">
+
+  <!-- BOTÓN (PLANTILLA VISUAL PARA TODOS) -->
+  <!-- El JS duplicará este formato automáticamente -->
+
+</div>
+
+<!-- SCROLL UP BUTTON -->
+<button id="scrollUpBtn"
+        class="hidden fixed bottom-6 right-6 bg-terracotta text-white w-12 h-12 rounded-full shadow-lg text-2xl flex items-center justify-center z-50 hover:bg-terracotta-dark transition"
+        aria-label="Volver al inicio">
+  ↑
+</button>
+<script>
+/* =======================
+      MENÚ FLOTANTE
+   ======================= */
+
+/* ITEMS DEL MENÚ (puedes cambiar texto o enlaces) */
+const menuLinks = [
+  { icon: "🛍️", label: "Tienda", url: "impacto.html" },
+  { icon: "📚", label: "Recetas", url: "#" },
+  { icon: "🎥", label: "Clases", url: "#" },
+  { icon: "📰", label: "Blog", url: "index.html#blog" },
+  { icon: "📝", label: "Evaluación", url: "evaluacion.html" },
+  { icon: "❓", label: "Ayuda", url: "#" },
+  { icon: "💬", label: "WhatsApp", url: "https://wa.me/##########" },
+  { icon: "❤️", label: "Donar", url: "#" },
+  { icon: "🌙", label: "Accesible", url: "#" },
+  { icon: "👤", label: "Mi cuenta", url: "#" }
+];
+
+const floatMenu = document.getElementById("floatMenu");
+
+menuLinks.forEach(item => {
+  let btn = document.createElement("div");
+  btn.className = "float-item";
+  btn.innerHTML = `
+      <span>${item.icon}</span>
+      <span class="float-label">${item.label}</span>
+  `;
+  btn.onclick = () => window.location.href = item.url;
+  floatMenu.appendChild(btn);
+});
+
+/* =======================
+      BOTÓN SCROLL UP
+   ======================= */
+const scrollBtn = document.getElementById("scrollUpBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollBtn.classList.add("show");
+  } else {
+    scrollBtn.classList.remove("show");
+  }
+});
+
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+</body>
+</html>

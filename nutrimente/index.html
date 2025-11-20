@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>NutriMente – Bienestar Integral</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Acompañamiento profesional en nutrición, psicología y bienestar. Comienza tu camino hacia una vida más saludable y consciente.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-[#F5F7F9] text-slate-800 font-poppins">
+
+<!-- Accesibilidad -->
+<a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 bg-white p-2 rounded shadow z-[9999]">Saltar al contenido</a>
+
+<!-- HEADER -->
+<header class="bg-white border-b-4 border-slate-800 fixed w-full top-0 z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="font-luxury text-3xl font-bold">
+      NutriMente
+      <span class="block text-xs uppercase tracking-widest text-[#A25B5B]">Bienestar Integral</span>
+    </a>
+
+    <nav class="hidden md:flex space-x-8 font-medium">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="evaluacion.html">Evaluación</a>
+      <a href="agendar.html">Agendar</a>
+      <a href="impacto.html">Impacto</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <button id="openMenu" class="md:hidden text-3xl">☰</button>
+  </div>
+</header>
+
+<!-- MENU MOVIL -->
+<aside id="sideMenu" class="fixed left-0 top-0 h-full w-64 bg-white shadow transform -translate-x-full transition p-6 z-50">
+  <button id="closeMenu" class="text-xl mb-4">✕</button>
+  <nav class="flex flex-col space-y-4">
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="evaluacion.html">Evaluación</a>
+    <a href="agendar.html">Agendar</a>
+    <a href="impacto.html">Impacto</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</aside>
+
+<div id="overlay" class="fixed inset-0 bg-black/40 hidden"></div>
+
+
+
+<!-- ========================================= -->
+<!-- HERO -->
+<!-- ========================================= -->
+<section class="relative bg-white pt-28">
+
+  <!-- Imagen original: gemini-2.5-flash-image_CREA_UNA_IMAGEN_DE_CONSULTA_VIRTUAL_POR_VIDEO_LLAMADA_Profesionalismo_claro_Rela-0.jpg -->
+  <img 
+    src="gemini-2.5-flash-image_CREA_UNA_IMAGEN_DE_CONSULTA_VIRTUAL_POR_VIDEO_LLAMADA_Profesionalismo_claro_Rela-0.jpg"
+    alt="Consulta profesional cálida y cercana por videollamada con especialista en bienestar integral"
+    class="w-full max-h-[650px] md:max-h-[720px] object-cover object-center"
+  >
+
+  <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center px-6">
+    <div>
+      <h1 class="text-white font-luxury text-4xl md:text-6xl font-bold mb-4">
+        Tu bienestar empieza con una conversación
+      </h1>
+      <p class="text-gray-200 max-w-2xl mx-auto text-lg md:text-xl">
+        Nutrición, psicología y coaching integrados para tu equilibrio físico y emocional.
+      </p>
+      <a href="agendar.html" class="bg-[#A25B5B] hover:bg-[#7D4545] text-white px-10 py-4 rounded-lg shadow-lg text-lg mt-8 inline-block">
+        Agendar Sesión
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- SERVICIOS -->
+<!-- ========================================= -->
+<section id="contenido" class="py-20 bg-[#F5F7F9]">
+  <h2 class="text-4xl font-luxury font-bold text-center mb-14">Servicios Profesionales</h2>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6">
+
+    <!-- Nutrición -->
+    <!-- Imagen original: Lucid_Origin_Professional_commercial_food_photography_editoria_0.jpg -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-[#A25B5B]">
+      <img src="Lucid_Origin_Professional_commercial_food_photography_editoria_0.jpg"
+           alt="Acompañamiento nutricional profesional"
+           class="w-full h-52 object-cover">
+      <div class="p-6">
+        <h3 class="text-xl font-luxury font-bold mb-2">Nutrición</h3>
+        <p class="text-gray-700">Enfoque humano, flexible y basado en evidencia.</p>
+      </div>
+    </div>
+
+    <!-- Psicología -->
+    <!-- Imagen original: pexels-polina-zimmerman-3958406.jpg -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-[#A25B5B]">
+      <img src="pexels-polina-zimmerman-3958406.jpg"
+           alt="Atención psicológica con un profesional empático"
+           class="w-full h-52 object-cover">
+      <div class="p-6">
+        <h3 class="text-xl font-luxury font-bold mb-2">Psicología</h3>
+        <p class="text-gray-700">Un espacio seguro para tus emociones.</p>
+      </div>
+    </div>
+
+    <!-- Bienestar -->
+    <!-- Imagen original: pexels-rdne-6517205.jpg -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-[#A25B5B]">
+      <img src="pexels-rdne-6517205.jpg"
+           alt="Coaching de bienestar y formación de hábitos"
+           class="w-full h-52 object-cover">
+      <div class="p-6">
+        <h3 class="text-xl font-luxury font-bold mb-2">Bienestar</h3>
+        <p class="text-gray-700">Construye hábitos sostenibles con acompañamiento.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- EVALUACIÓN -->
+<!-- ========================================= -->
+<section class="py-20 bg-white text-center">
+  <h2 class="text-4xl font-luxury font-bold">Comienza con tu evaluación</h2>
+  <p class="text-gray-700 text-lg mt-4">Responde unas preguntas y recibe una orientación inicial.</p>
+  <a href="evaluacion.html" class="mt-8 inline-block bg-[#A25B5B] hover:bg-[#7D4545] text-white px-10 py-4 rounded-lg shadow-lg text-lg">
+    Realizar Evaluación
+  </a>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- TESTIMONIOS (SIN IMÁGENES) -->
+<!-- ========================================= -->
+<section class="py-20 bg-[#F5F7F9]">
+  <h2 class="text-4xl font-luxury font-bold text-center mb-12">Lo que dicen nuestros usuarios</h2>
+
+  <div class="max-w-4xl mx-auto px-6 grid gap-8 md:grid-cols-3">
+
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <p class="italic text-gray-700">“Aprendí a comer sin culpa y con equilibrio.”</p>
+      <p class="font-semibold text-[#A25B5B] mt-4">— Daniela</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <p class="italic text-gray-700">“Mi ansiedad mejoró muchísimo con el acompañamiento.”</p>
+      <p class="font-semibold text-[#A25B5B] mt-4">— Ricardo</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <p class="italic text-gray-700">“Se nota la humanidad y profesionalismo.”</p>
+      <p class="font-semibold text-[#A25B5B] mt-4">— Laura</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- BLOG -->
+<!-- ========================================= -->
+<section class="py-20 bg-white">
+  <h2 class="text-4xl font-luxury font-bold text-center mb-14">Blog de Bienestar</h2>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6">
+
+    <!-- Blog 1 -->
+    <!-- Imagen original: pexels-kampus-7658833.jpg -->
+    <div class="bg-[#F5F7F9] rounded-xl shadow p-5">
+      <img src="pexels-kampus-7658833.jpg" alt="Artículo de bienestar" class="w-full h-48 object-cover rounded-md mb-4">
+      <h3 class="font-bold mb-2">Hábitos que transforman</h3>
+      <p class="text-gray-700 text-sm">Pequeños cambios que generan grandes resultados.</p>
+    </div>
+
+    <!-- Blog 2 -->
+    <!-- Imagen original: pexels-karola-g-7195110.jpg -->
+    <div class="bg-[#F5F7F9] rounded-xl shadow p-5">
+      <img src="pexels-karola-g-7195110.jpg" alt="Artículo de autocuidado" class="w-full h-48 object-cover rounded-md mb-4">
+      <h3 class="font-bold mb-2">Cuidar de ti sin culpas</h3>
+      <p class="text-gray-700 text-sm">Un enfoque amable hacia tu bienestar.</p>
+    </div>
+
+    <!-- Blog 3 -->
+    <!-- Imagen original: pexels-yaroslav-shuraev-4504016.jpg -->
+    <div class="bg-[#F5F7F9] rounded-xl shadow p-5">
+      <img src="pexels-yaroslav-shuraev-4504016.jpg" alt="Artículo sobre equilibrio mental" class="w-full h-48 object-cover rounded-md mb-4">
+      <h3 class="font-bold mb-2">Equilibrio emocional</h3>
+      <p class="text-gray-700 text-sm">Encuentra calma en medio del día a día.</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- CTA FINAL -->
+<!-- ========================================= -->
+<section class="text-center py-20 bg-[#F5F7F9]">
+  <h2 class="text-4xl font-luxury font-bold">Agenda tu sesión hoy</h2>
+  <p class="text-gray-700 mt-4">Un espacio seguro para transformar tu bienestar.</p>
+
+  <a href="agendar.html"
+     class="mt-8 inline-block bg-[#A25B5B] hover:bg-[#7D4545] text-white px-10 py-4 rounded-lg text-lg shadow-lg">
+    Agendar Sesión
+  </a>
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+<footer class="bg-slate-800 text-white pt-12 pb-8">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+
+    <div>
+      <h3 class="font-luxury text-xl text-[#A25B5B] mb-3">NutriMente</h3>
+      <p class="text-gray-300 text-sm">Bienestar integral para tu cuerpo y mente.</p>
+    </div>
+
+    <div>
+      <h4 class="text-[#A25B5B] font-semibold mb-3">Páginas</h4>
+      <ul class="space-y-1 text-gray-300 text-sm">
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="evaluacion.html">Evaluación</a></li>
+        <li><a href="agendar.html">Agendar</a></li>
+        <li><a href="impacto.html">Impacto</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-[#A25B5B] font-semibold mb-3">Contacto</h4>
+      <p class="text-gray-300 text-sm">contacto@nutrimente.com</p>
+    </div>
+
+    <div>
+      <h4 class="text-[#A25B5B] font-semibold mb-3">Síguenos</h4>
+      <div class="flex space-x-4 text-xl">
+        <a href="#">FB</a>
+        <a href="#">IG</a>
+        <a href="#">IN</a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="text-center text-gray-500 mt-10 text-sm">
+    © 2025 NutriMente – Todos los derechos reservados.
+  </p>
+</footer>
+<!-- ============ MENÚ FLOTANTE ============ -->
+<div id="floatMenu"
+     class="hidden md:flex flex-col gap-4 fixed right-4 top-1/3 z-50">
+
+  <!-- BOTÓN (PLANTILLA VISUAL PARA TODOS) -->
+  <!-- El JS duplicará este formato automáticamente -->
+
+</div>
+
+<!-- SCROLL UP BUTTON -->
+<button id="scrollUpBtn"
+        class="hidden fixed bottom-6 right-6 bg-terracotta text-white w-12 h-12 rounded-full shadow-lg text-2xl flex items-center justify-center z-50 hover:bg-terracotta-dark transition"
+        aria-label="Volver al inicio">
+  ↑
+</button>
+<script>
+/* =======================
+      MENÚ FLOTANTE
+   ======================= */
+
+/* ITEMS DEL MENÚ (puedes cambiar texto o enlaces) */
+const menuLinks = [
+  { icon: "🛍️", label: "Tienda", url: "impacto.html" },
+  { icon: "📚", label: "Recetas", url: "#" },
+  { icon: "🎥", label: "Clases", url: "#" },
+  { icon: "📰", label: "Blog", url: "index.html#blog" },
+  { icon: "📝", label: "Evaluación", url: "evaluacion.html" },
+  { icon: "❓", label: "Ayuda", url: "#" },
+  { icon: "💬", label: "WhatsApp", url: "https://wa.me/##########" },
+  { icon: "❤️", label: "Donar", url: "#" },
+  { icon: "🌙", label: "Accesible", url: "#" },
+  { icon: "👤", label: "Mi cuenta", url: "#" }
+];
+
+const floatMenu = document.getElementById("floatMenu");
+
+menuLinks.forEach(item => {
+  let btn = document.createElement("div");
+  btn.className = "float-item";
+  btn.innerHTML = `
+      <span>${item.icon}</span>
+      <span class="float-label">${item.label}</span>
+  `;
+  btn.onclick = () => window.location.href = item.url;
+  floatMenu.appendChild(btn);
+});
+
+/* =======================
+      BOTÓN SCROLL UP
+   ======================= */
+const scrollBtn = document.getElementById("scrollUpBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollBtn.classList.add("show");
+  } else {
+    scrollBtn.classList.remove("show");
+  }
+});
+
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+</body>
+</html>

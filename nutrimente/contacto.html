@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto – NutriMente</title>
+
+    <meta name="description" content="Comunícate con el equipo de NutriMente para recibir orientación profesional en bienestar integral.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tipografías -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        .bg-terracotta { background-color: #A25B5B; }
+        .bg-terracotta-dark { background-color: #7D4545; }
+        .text-terracotta { color: #A25B5B; }
+        .bg-page-light { background-color: #F5F7F9; }
+    </style>
+</head>
+
+<body class="bg-page-light min-h-screen">
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-md border-b-4 border-slate-800 fixed top-0 left-0 w-full z-50">
+        <div class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="index.html">
+                <h1 class="text-3xl font-luxury font-bold text-slate-800">NutriMente</h1>
+                <span class="text-xs text-terracotta uppercase tracking-widest block mt-1">Contáctanos</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="max-w-5xl mx-auto px-6 mt-32 pb-20 grid md:grid-cols-2 gap-12 items-center">
+
+        <!-- Imagen -->
+        <div>
+            <!-- Imagen original: pexels-polina-zimmerman-3958406.jpg -->
+            <img src="pexels-polina-zimmerman-3958406.jpg"
+                 alt="Profesional escuchando atentamente en una sesión"
+                 class="w-full h-[380px] object-cover rounded-xl shadow-lg">
+        </div>
+
+        <!-- FORMULARIO -->
+        <div class="bg-white rounded-xl shadow-lg p-8 border-l-8 border-terracotta">
+
+            <h2 class="text-3xl font-luxury font-bold text-slate-800 mb-4">
+                Estamos aquí para ayudarte
+            </h2>
+
+            <p class="text-gray-700 mb-6">
+                Completa el formulario y te responderemos lo más pronto posible.
+            </p>
+
+            <form class="space-y-6">
+
+                <!-- Nombre -->
+                <div>
+                    <label class="block mb-1 font-semibold text-slate-800">
+                        Nombre completo
+                    </label>
+                    <input type="text" required
+                        class="w-full bg-page-light border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-terracotta">
+                </div>
+
+                <!-- Correo -->
+                <div>
+                    <label class="block mb-1 font-semibold text-slate-800">
+                        Correo electrónico
+                    </label>
+                    <input type="email" required
+                        class="w-full bg-page-light border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-terracotta">
+                </div>
+
+                <!-- Mensaje -->
+                <div>
+                    <label class="block mb-1 font-semibold text-slate-800">
+                        Mensaje
+                    </label>
+                    <textarea rows="4" required
+                        class="w-full bg-page-light border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-terracotta"></textarea>
+                </div>
+
+                <!-- Botón -->
+                <button type="submit"
+                    class="w-full bg-terracotta hover:bg-terracotta-dark text-white py-3 rounded-lg text-lg shadow-md transition">
+                    Enviar mensaje
+                </button>
+            </form>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-800 text-white pt-12 pb-8 mt-20">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+            <div>
+                <h4 class="font-luxury text-xl text-terracotta mb-3">NutriMente</h4>
+                <p class="text-gray-300 text-sm">Bienestar integral, cuerpo y mente.</p>
+            </div>
+
+            <div>
+                <h4 class="text-terracotta font-semibold mb-3">Contacto</h4>
+                <p class="text-gray-300 text-sm">contacto@nutrimente.com</p>
+                <p class="text-gray-300 text-sm">Lun – Dom · 5:00am – 10:00pm</p>
+            </div>
+
+            <div>
+                <h4 class="text-terracotta font-semibold mb-3">Síguenos</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">IN</a>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="text-center text-gray-500 mt-10 text-sm">
+            © 2025 NutriMente – Todos los derechos reservados.
+        </p>
+    </footer>
+<!-- ============ MENÚ FLOTANTE ============ -->
+<div id="floatMenu"
+     class="hidden md:flex flex-col gap-4 fixed right-4 top-1/3 z-50">
+
+  <!-- BOTÓN (PLANTILLA VISUAL PARA TODOS) -->
+  <!-- El JS duplicará este formato automáticamente -->
+
+</div>
+
+<!-- SCROLL UP BUTTON -->
+<button id="scrollUpBtn"
+        class="hidden fixed bottom-6 right-6 bg-terracotta text-white w-12 h-12 rounded-full shadow-lg text-2xl flex items-center justify-center z-50 hover:bg-terracotta-dark transition"
+        aria-label="Volver al inicio">
+  ↑
+</button>
+<script>
+/* =======================
+      MENÚ FLOTANTE
+   ======================= */
+
+/* ITEMS DEL MENÚ (puedes cambiar texto o enlaces) */
+const menuLinks = [
+  { icon: "🛍️", label: "Tienda", url: "impacto.html" },
+  { icon: "📚", label: "Recetas", url: "#" },
+  { icon: "🎥", label: "Clases", url: "#" },
+  { icon: "📰", label: "Blog", url: "index.html#blog" },
+  { icon: "📝", label: "Evaluación", url: "evaluacion.html" },
+  { icon: "❓", label: "Ayuda", url: "#" },
+  { icon: "💬", label: "WhatsApp", url: "https://wa.me/##########" },
+  { icon: "❤️", label: "Donar", url: "#" },
+  { icon: "🌙", label: "Accesible", url: "#" },
+  { icon: "👤", label: "Mi cuenta", url: "#" }
+];
+
+const floatMenu = document.getElementById("floatMenu");
+
+menuLinks.forEach(item => {
+  let btn = document.createElement("div");
+  btn.className = "float-item";
+  btn.innerHTML = `
+      <span>${item.icon}</span>
+      <span class="float-label">${item.label}</span>
+  `;
+  btn.onclick = () => window.location.href = item.url;
+  floatMenu.appendChild(btn);
+});
+
+/* =======================
+      BOTÓN SCROLL UP
+   ======================= */
+const scrollBtn = document.getElementById("scrollUpBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollBtn.classList.add("show");
+  } else {
+    scrollBtn.classList.remove("show");
+  }
+});
+
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+</body>
+</html>
