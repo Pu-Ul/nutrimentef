@@ -1,339 +1,625 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>NutriMente – Bienestar Integral</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NutriMente — Bienestar Integral</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- SEO -->
-  <meta name="description" content="Acompañamiento profesional en nutrición, psicología y bienestar. Comienza tu camino hacia una vida más saludable y consciente.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+:root {
+  --cream: #faf6f0;
+  --warm: #f0e8d8;
+  --sage: #8aab8e;
+  --dark-sage: #5a7a5e;
+  --terracota: #c17a5a;
+  --dark: #2a2118;
+  --muted: #8a7a6a;
+  --border: #e0d8cc;
+  --white: #ffffff;
+}
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+html { scroll-behavior: smooth; }
 
-  <!-- Tipografías -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+body {
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(250,246,240,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--dark);
+  letter-spacing: 0.03em;
+}
+
+.nav-logo span { color: var(--sage); font-style: italic; }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--dark-sage); }
+
+.nav-cta {
+  background: var(--sage);
+  color: white !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2px;
+  font-weight: 500 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--dark-sage) !important; color: white !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 60px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem 5rem 5rem;
+}
+
+.hero-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--sage);
+}
+
+.hero p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--sage);
+  color: white;
+  padding: 0.9rem 2.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+}
+.btn-primary:hover { background: var(--dark-sage); }
+
+.btn-outline {
+  display: inline-block;
+  background: none;
+  color: var(--dark);
+  padding: 0.9rem 2.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-outline:hover { border-color: var(--sage); color: var(--sage); }
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hero-image {
+  background: var(--warm);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e8ddd0 0%, #d4c8b8 40%, #c8b8a0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 3rem;
+  left: -1rem;
+  background: white;
+  padding: 1.25rem 1.75rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  border-left: 3px solid var(--sage);
+  max-width: 220px;
+}
+
+.hero-badge-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--sage);
+  line-height: 1;
+}
+
+.hero-badge-text {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-top: 0.3rem;
+}
+
+/* SEPARADOR */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 5rem;
+}
+
+/* SECCIÓN SERVICIOS */
+.section {
+  padding: 6rem 5rem;
+}
+
+.section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--sage);
+}
+
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  max-width: 500px;
+}
+
+.section-intro {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 500px;
+  margin-bottom: 3.5rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--border);
+}
+
+.service-card {
+  background: var(--white);
+  padding: 2.5rem;
+  transition: background 0.3s;
+  cursor: default;
+}
+
+.service-card:hover { background: var(--warm); }
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+.service-price {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--sage);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* PROCESO */
+.process-section {
+  background: var(--dark);
+  padding: 6rem 5rem;
+  color: white;
+}
+
+.process-section .section-label { color: var(--sage); }
+.process-section .section-label::after { background: var(--sage); }
+
+.process-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 3.5rem;
+  color: white;
+  max-width: 400px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.step {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.5rem;
+}
+
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--sage);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.step h4 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.step p {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+}
+
+/* TESTIMONIOS */
+.testimonios {
+  padding: 6rem 5rem;
+  background: var(--warm);
+}
+
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.testimonio {
+  background: white;
+  padding: 2rem;
+  border-bottom: 2px solid var(--sage);
+}
+
+.testimonio-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--dark);
+  margin-bottom: 1.25rem;
+}
+
+.testimonio-author {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* CTA FINAL */
+.cta-section {
+  padding: 7rem 5rem;
+  text-align: center;
+  background: var(--cream);
+}
+
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-section h2 em { color: var(--sage); font-style: italic; }
+
+.cta-section p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 420px;
+  margin: 0 auto 2.5rem;
+}
+
+.cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.4);
+  padding: 2.5rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: white;
+}
+
+.footer-logo span { color: var(--sage); font-style: italic; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 1.25rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-content { padding: 3rem 1.5rem; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-image { min-height: 300px; }
+  .section, .process-section, .testimonios, .cta-section { padding: 4rem 1.5rem; }
+  .services-grid, .steps, .testimonios-grid { grid-template-columns: 1fr; }
+  .divider { margin: 0 1.5rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  .cta-btns { flex-direction: column; align-items: center; }
+}
+
+/* ANIMACIONES */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content > * {
+  animation: fadeUp 0.7s ease both;
+}
+.hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+</style>
 </head>
+<body>
 
-<body class="bg-[#F5F7F9] text-slate-800 font-poppins">
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Nutri<span>Mente</span></div>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#agendar" class="nav-cta">Agendar sesión</a></li>
+  </ul>
+</nav>
 
-<!-- Accesibilidad -->
-<a href="#contenido" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 bg-white p-2 rounded shadow z-[9999]">Saltar al contenido</a>
-
-<!-- HEADER -->
-<header class="bg-white border-b-4 border-slate-800 fixed w-full top-0 z-50 shadow-md">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="index.html" class="font-luxury text-3xl font-bold">
-      NutriMente
-      <span class="block text-xs uppercase tracking-widest text-[#A25B5B]">Bienestar Integral</span>
-    </a>
-
-    <nav class="hidden md:flex space-x-8 font-medium">
-      <a href="index.html">Inicio</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="evaluacion.html">Evaluación</a>
-      <a href="agendar.html">Agendar</a>
-      <a href="impacto.html">Impacto</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-
-    <button id="openMenu" class="md:hidden text-3xl">☰</button>
-  </div>
-</header>
-
-<!-- MENU MOVIL -->
-<aside id="sideMenu" class="fixed left-0 top-0 h-full w-64 bg-white shadow transform -translate-x-full transition p-6 z-50">
-  <button id="closeMenu" class="text-xl mb-4">✕</button>
-  <nav class="flex flex-col space-y-4">
-    <a href="index.html">Inicio</a>
-    <a href="servicios.html">Servicios</a>
-    <a href="evaluacion.html">Evaluación</a>
-    <a href="agendar.html">Agendar</a>
-    <a href="impacto.html">Impacto</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
-</aside>
-
-<div id="overlay" class="fixed inset-0 bg-black/40 hidden"></div>
-
-
-
-<!-- ========================================= -->
 <!-- HERO -->
-<!-- ========================================= -->
-<section class="relative bg-white pt-28">
-
-  <!-- Imagen original: gemini-2.5-flash-image_CREA_UNA_IMAGEN_DE_CONSULTA_VIRTUAL_POR_VIDEO_LLAMADA_Profesionalismo_claro_Rela-0.jpg -->
-  <img 
-    src="gemini-2.5-flash-image_CREA_UNA_IMAGEN_DE_CONSULTA_VIRTUAL_POR_VIDEO_LLAMADA_Profesionalismo_claro_Rela-0.jpg"
-    alt="Consulta profesional cálida y cercana por videollamada con especialista en bienestar integral"
-    class="w-full max-h-[650px] md:max-h-[720px] object-cover object-center"
-  >
-
-  <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center px-6">
-    <div>
-      <h1 class="text-white font-luxury text-4xl md:text-6xl font-bold mb-4">
-        Tu bienestar empieza con una conversación
-      </h1>
-      <p class="text-gray-200 max-w-2xl mx-auto text-lg md:text-xl">
-        Nutrición, psicología y coaching integrados para tu equilibrio físico y emocional.
-      </p>
-      <a href="agendar.html" class="bg-[#A25B5B] hover:bg-[#7D4545] text-white px-10 py-4 rounded-lg shadow-lg text-lg mt-8 inline-block">
-        Agendar Sesión
-      </a>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Bienestar integral online</div>
+    <h1>Tu bienestar empieza con una <em>conversación</em></h1>
+    <p>Nutrición, psicología y coaching integrados para tu equilibrio físico y emocional. Sesiones online, a tu ritmo, desde donde estés.</p>
+    <div class="hero-btns">
+      <a href="#agendar" class="btn-primary">Agendar sesión</a>
+      <a href="#servicios" class="btn-outline">Ver servicios</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-image-inner">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(90,122,94,0.2);font-style:italic;">N</div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-num">3 en 1</div>
+      <div class="hero-badge-text">Nutrición, psicología y coaching en un solo espacio</div>
     </div>
   </div>
 </section>
 
+<div class="divider"></div>
 
-
-<!-- ========================================= -->
 <!-- SERVICIOS -->
-<!-- ========================================= -->
-<section id="contenido" class="py-20 bg-[#F5F7F9]">
-  <h2 class="text-4xl font-luxury font-bold text-center mb-14">Servicios Profesionales</h2>
+<section class="section" id="servicios">
+  <div class="section-label">Lo que ofrecemos</div>
+  <h2>Tres disciplinas, un solo acompañamiento</h2>
+  <p class="section-intro">Porque el cuerpo, la mente y los hábitos no funcionan por separado. Tu proceso de bienestar tampoco debería.</p>
 
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6">
-
-    <!-- Nutrición -->
-    <!-- Imagen original: Lucid_Origin_Professional_commercial_food_photography_editoria_0.jpg -->
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-[#A25B5B]">
-      <img src="Lucid_Origin_Professional_commercial_food_photography_editoria_0.jpg"
-           alt="Acompañamiento nutricional profesional"
-           class="w-full h-52 object-cover">
-      <div class="p-6">
-        <h3 class="text-xl font-luxury font-bold mb-2">Nutrición</h3>
-        <p class="text-gray-700">Enfoque humano, flexible y basado en evidencia.</p>
-      </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🥗</div>
+      <h3>Nutrición</h3>
+      <p>Enfoque humano, flexible y basado en evidencia. Sin dietas restrictivas ni culpa. Aprendemos a comer bien para la vida real.</p>
+      <div class="service-price">Sesión individual · Online</div>
     </div>
-
-    <!-- Psicología -->
-    <!-- Imagen original: pexels-polina-zimmerman-3958406.jpg -->
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-[#A25B5B]">
-      <img src="pexels-polina-zimmerman-3958406.jpg"
-           alt="Atención psicológica con un profesional empático"
-           class="w-full h-52 object-cover">
-      <div class="p-6">
-        <h3 class="text-xl font-luxury font-bold mb-2">Psicología</h3>
-        <p class="text-gray-700">Un espacio seguro para tus emociones.</p>
-      </div>
+    <div class="service-card">
+      <div class="service-icon">🧠</div>
+      <h3>Psicología</h3>
+      <p>Un espacio seguro para tus emociones. Trabajamos ansiedad, estrés, hábitos y todo lo que está detrás de cómo te sientes.</p>
+      <div class="service-price">Sesión individual · Online</div>
     </div>
-
-    <!-- Bienestar -->
-    <!-- Imagen original: pexels-rdne-6517205.jpg -->
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-[#A25B5B]">
-      <img src="pexels-rdne-6517205.jpg"
-           alt="Coaching de bienestar y formación de hábitos"
-           class="w-full h-52 object-cover">
-      <div class="p-6">
-        <h3 class="text-xl font-luxury font-bold mb-2">Bienestar</h3>
-        <p class="text-gray-700">Construye hábitos sostenibles con acompañamiento.</p>
-      </div>
+    <div class="service-card">
+      <div class="service-icon">✦</div>
+      <h3>Coaching de bienestar</h3>
+      <p>Construye hábitos sostenibles con acompañamiento real. Objetivos claros, seguimiento constante, resultados que duran.</p>
+      <div class="service-price">Sesión individual · Online</div>
     </div>
-
   </div>
 </section>
 
+<!-- PROCESO -->
+<section class="process-section" id="proceso">
+  <div class="section-label">Cómo funciona</div>
+  <h2>Cuatro pasos para empezar</h2>
 
-
-<!-- ========================================= -->
-<!-- EVALUACIÓN -->
-<!-- ========================================= -->
-<section class="py-20 bg-white text-center">
-  <h2 class="text-4xl font-luxury font-bold">Comienza con tu evaluación</h2>
-  <p class="text-gray-700 text-lg mt-4">Responde unas preguntas y recibe una orientación inicial.</p>
-  <a href="evaluacion.html" class="mt-8 inline-block bg-[#A25B5B] hover:bg-[#7D4545] text-white px-10 py-4 rounded-lg shadow-lg text-lg">
-    Realizar Evaluación
-  </a>
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- TESTIMONIOS (SIN IMÁGENES) -->
-<!-- ========================================= -->
-<section class="py-20 bg-[#F5F7F9]">
-  <h2 class="text-4xl font-luxury font-bold text-center mb-12">Lo que dicen nuestros usuarios</h2>
-
-  <div class="max-w-4xl mx-auto px-6 grid gap-8 md:grid-cols-3">
-
-    <div class="bg-white p-6 rounded-xl shadow-md">
-      <p class="italic text-gray-700">“Aprendí a comer sin culpa y con equilibrio.”</p>
-      <p class="font-semibold text-[#A25B5B] mt-4">— Daniela</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4>Evaluación inicial</h4>
+      <p>Respondes unas preguntas sobre tu situación actual. Sin juicios, sin formularios eternos.</p>
     </div>
-
-    <div class="bg-white p-6 rounded-xl shadow-md">
-      <p class="italic text-gray-700">“Mi ansiedad mejoró muchísimo con el acompañamiento.”</p>
-      <p class="font-semibold text-[#A25B5B] mt-4">— Ricardo</p>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4>Agenda tu sesión</h4>
+      <p>Eliges el día y hora que mejor te queden. Sesiones online desde cualquier lugar.</p>
     </div>
-
-    <div class="bg-white p-6 rounded-xl shadow-md">
-      <p class="italic text-gray-700">“Se nota la humanidad y profesionalismo.”</p>
-      <p class="font-semibold text-[#A25B5B] mt-4">— Laura</p>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4>Acompañamiento real</h4>
+      <p>Trabajamos juntos con seguimiento entre sesiones. No desaparecemos entre citas.</p>
     </div>
-
+    <div class="step">
+      <div class="step-num">04</div>
+      <h4>Resultados que duran</h4>
+      <p>Construimos cambios sostenibles, no soluciones de parche. Tu bienestar a largo plazo.</p>
+    </div>
   </div>
 </section>
 
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+  <div class="section-label">Lo que dicen</div>
+  <h2>Personas reales, cambios reales</h2>
 
-
-<!-- ========================================= -->
-<!-- BLOG -->
-<!-- ========================================= -->
-<section class="py-20 bg-white">
-  <h2 class="text-4xl font-luxury font-bold text-center mb-14">Blog de Bienestar</h2>
-
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6">
-
-    <!-- Blog 1 -->
-    <!-- Imagen original: pexels-kampus-7658833.jpg -->
-    <div class="bg-[#F5F7F9] rounded-xl shadow p-5">
-      <img src="pexels-kampus-7658833.jpg" alt="Artículo de bienestar" class="w-full h-48 object-cover rounded-md mb-4">
-      <h3 class="font-bold mb-2">Hábitos que transforman</h3>
-      <p class="text-gray-700 text-sm">Pequeños cambios que generan grandes resultados.</p>
+  <div class="testimonios-grid">
+    <div class="testimonio">
+      <div class="testimonio-text">"Aprendí a comer sin culpa y con equilibrio. Por primera vez en años no siento que estoy a dieta."</div>
+      <div class="testimonio-author">— Daniela, Medellín</div>
     </div>
-
-    <!-- Blog 2 -->
-    <!-- Imagen original: pexels-karola-g-7195110.jpg -->
-    <div class="bg-[#F5F7F9] rounded-xl shadow p-5">
-      <img src="pexels-karola-g-7195110.jpg" alt="Artículo de autocuidado" class="w-full h-48 object-cover rounded-md mb-4">
-      <h3 class="font-bold mb-2">Cuidar de ti sin culpas</h3>
-      <p class="text-gray-700 text-sm">Un enfoque amable hacia tu bienestar.</p>
+    <div class="testimonio">
+      <div class="testimonio-text">"Mi ansiedad mejoró muchísimo con el acompañamiento. Se nota que hay una persona real del otro lado."</div>
+      <div class="testimonio-author">— Ricardo, Bogotá</div>
     </div>
-
-    <!-- Blog 3 -->
-    <!-- Imagen original: pexels-yaroslav-shuraev-4504016.jpg -->
-    <div class="bg-[#F5F7F9] rounded-xl shadow p-5">
-      <img src="pexels-yaroslav-shuraev-4504016.jpg" alt="Artículo sobre equilibrio mental" class="w-full h-48 object-cover rounded-md mb-4">
-      <h3 class="font-bold mb-2">Equilibrio emocional</h3>
-      <p class="text-gray-700 text-sm">Encuentra calma en medio del día a día.</p>
+    <div class="testimonio">
+      <div class="testimonio-text">"Se nota la humanidad y el profesionalismo. No es un servicio más — es un acompañamiento de verdad."</div>
+      <div class="testimonio-author">— Laura, Cali</div>
     </div>
-
   </div>
 </section>
 
-
-
-<!-- ========================================= -->
-<!-- CTA FINAL -->
-<!-- ========================================= -->
-<section class="text-center py-20 bg-[#F5F7F9]">
-  <h2 class="text-4xl font-luxury font-bold">Agenda tu sesión hoy</h2>
-  <p class="text-gray-700 mt-4">Un espacio seguro para transformar tu bienestar.</p>
-
-  <a href="agendar.html"
-     class="mt-8 inline-block bg-[#A25B5B] hover:bg-[#7D4545] text-white px-10 py-4 rounded-lg text-lg shadow-lg">
-    Agendar Sesión
-  </a>
+<!-- CTA -->
+<section class="cta-section" id="agendar">
+  <h2>¿Lista para empezar tu proceso de <em>bienestar</em>?</h2>
+  <p>Una conversación de 30 minutos puede cambiar la dirección de todo. Sin compromiso, sin presión.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn-primary">Agendar sesión gratuita</a>
+    <a href="#" class="btn-outline">Hacer evaluación</a>
+  </div>
 </section>
 
-
-
-<!-- ========================================= -->
 <!-- FOOTER -->
-<!-- ========================================= -->
-<footer class="bg-slate-800 text-white pt-12 pb-8">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
-
-    <div>
-      <h3 class="font-luxury text-xl text-[#A25B5B] mb-3">NutriMente</h3>
-      <p class="text-gray-300 text-sm">Bienestar integral para tu cuerpo y mente.</p>
-    </div>
-
-    <div>
-      <h4 class="text-[#A25B5B] font-semibold mb-3">Páginas</h4>
-      <ul class="space-y-1 text-gray-300 text-sm">
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="evaluacion.html">Evaluación</a></li>
-        <li><a href="agendar.html">Agendar</a></li>
-        <li><a href="impacto.html">Impacto</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4 class="text-[#A25B5B] font-semibold mb-3">Contacto</h4>
-      <p class="text-gray-300 text-sm">contacto@nutrimente.com</p>
-    </div>
-
-    <div>
-      <h4 class="text-[#A25B5B] font-semibold mb-3">Síguenos</h4>
-      <div class="flex space-x-4 text-xl">
-        <a href="#">FB</a>
-        <a href="#">IG</a>
-        <a href="#">IN</a>
-      </div>
-    </div>
-
-  </div>
-
-  <p class="text-center text-gray-500 mt-10 text-sm">
-    © 2025 NutriMente – Todos los derechos reservados.
-  </p>
+<footer>
+  <div class="footer-logo">Nutri<span>Mente</span></div>
+  <span>contacto@nutrimente.co</span>
+  <span>© 2025 NutriMente — Bienestar integral</span>
 </footer>
-<!-- ============ MENÚ FLOTANTE ============ -->
-<div id="floatMenu"
-     class="hidden md:flex flex-col gap-4 fixed right-4 top-1/3 z-50">
-
-  <!-- BOTÓN (PLANTILLA VISUAL PARA TODOS) -->
-  <!-- El JS duplicará este formato automáticamente -->
-
-</div>
-
-<!-- SCROLL UP BUTTON -->
-<button id="scrollUpBtn"
-        class="hidden fixed bottom-6 right-6 bg-terracotta text-white w-12 h-12 rounded-full shadow-lg text-2xl flex items-center justify-center z-50 hover:bg-terracotta-dark transition"
-        aria-label="Volver al inicio">
-  ↑
-</button>
-<script>
-/* =======================
-      MENÚ FLOTANTE
-   ======================= */
-
-/* ITEMS DEL MENÚ (puedes cambiar texto o enlaces) */
-const menuLinks = [
-  { icon: "🛍️", label: "Tienda", url: "impacto.html" },
-  { icon: "📚", label: "Recetas", url: "#" },
-  { icon: "🎥", label: "Clases", url: "#" },
-  { icon: "📰", label: "Blog", url: "index.html#blog" },
-  { icon: "📝", label: "Evaluación", url: "evaluacion.html" },
-  { icon: "❓", label: "Ayuda", url: "#" },
-  { icon: "💬", label: "WhatsApp", url: "https://wa.me/##########" },
-  { icon: "❤️", label: "Donar", url: "#" },
-  { icon: "🌙", label: "Accesible", url: "#" },
-  { icon: "👤", label: "Mi cuenta", url: "#" }
-];
-
-const floatMenu = document.getElementById("floatMenu");
-
-menuLinks.forEach(item => {
-  let btn = document.createElement("div");
-  btn.className = "float-item";
-  btn.innerHTML = `
-      <span>${item.icon}</span>
-      <span class="float-label">${item.label}</span>
-  `;
-  btn.onclick = () => window.location.href = item.url;
-  floatMenu.appendChild(btn);
-});
-
-/* =======================
-      BOTÓN SCROLL UP
-   ======================= */
-const scrollBtn = document.getElementById("scrollUpBtn");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollBtn.classList.add("show");
-  } else {
-    scrollBtn.classList.remove("show");
-  }
-});
-
-scrollBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-</script>
 
 </body>
 </html>
